@@ -1,0 +1,25 @@
+<h3>Nam: <%= @borrower.first_name %></h3>
+<h3>Amount Needed: $<%= @borrower.money %></h3>
+<h3>Amount Raised: $<%= @borrower.raised %></h3>
+
+<h3>List of People Who Lend You Money</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Amount Lent</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @history.each do |history| %>
+				<tr>
+					<td><%= history.borrower.first_name %> <%= history.borrower.last_name %></td>
+					<td><%= history.borrower.email %></td>
+					<td><%= history.amount %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<a href="sessions/delete">Log Out</a>
